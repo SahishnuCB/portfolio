@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
+import { NavLink } from "@/components/NavLink";
 
 const projects = [
   {
@@ -45,16 +46,43 @@ export default function HomePage() {
         </div>
 
         <nav className="flex gap-5 text-sm text-white/70">
-          <a className="transition hover:text-white" href="#projects">
+          <button
+            className="transition hover:text-white"
+            onClick={() => {
+              window.location.hash = "projects";
+              window.dispatchEvent(
+                new CustomEvent("wave-section-title", { detail: { id: "projects" } })
+              );
+            }}
+          >
             Projects
-          </a>
-          <a className="transition hover:text-white" href="#about">
+          </button>
+
+          <button
+            className="transition hover:text-white"
+            onClick={() => {
+              window.location.hash = "about";
+              window.dispatchEvent(
+                new CustomEvent("wave-section-title", { detail: { id: "about" } })
+              );
+            }}
+          >
             About
-          </a>
-          <a className="transition hover:text-white" href="#contact">
+          </button>
+
+          <button
+            className="transition hover:text-white"
+            onClick={() => {
+              window.location.hash = "contact";
+              window.dispatchEvent(
+                new CustomEvent("wave-section-title", { detail: { id: "contact" } })
+              );
+            }}
+          >
             Contact
-          </a>
+          </button>
         </nav>
+
       </header>
 
 
