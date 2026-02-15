@@ -1,7 +1,8 @@
 "use client";
 
 import { Reveal } from "@/components/Reveal";
-import { version } from "react-native/types_generated/Libraries/Core/ReactNativeVersion";
+import type { ReactNode } from "react";
+
 
 const chips = [ "Rust", "Storage Engine", "Embedded KV", "Systems" ];
 
@@ -64,7 +65,7 @@ const roadmap = [
     },
 ];
 
-function Chip({children}: {children: React.ReactNode}) {
+function Chip({children}: {children: ReactNode}) {
     return (
     <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
         {children}
@@ -77,7 +78,7 @@ function Card({
     children,
 }: {
     title: string;
-    children: React.ReactNode;
+    children: ReactNode;
 }) {
     return (
     <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur transition duration-300 hover:border-white/20 hover:bg-white/[0.07] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_20px_50px_rgba(0,0,0,0.35)]">
@@ -89,8 +90,8 @@ function Card({
 
 export default function AtlasDBPage() {
     return (
-        <main className="main-h-screen py-14">
-            {*/ Simple black line */}
+        <main className="min-h-screen py-14">
+            {/* Simple black line */}
             <Reveal>
                 <a
                     href="/"
@@ -100,7 +101,7 @@ export default function AtlasDBPage() {
                 </a>
             </Reveal>
 
-            {*/ Header */}
+            {/* Header */}
             <section className = "mt-10">
                 <Reveal>
                     <div className="text-xs uppercase tracking-[0.2em] text-white/50">
@@ -154,7 +155,7 @@ export default function AtlasDBPage() {
                 </Reveal>
             </section>
 
-            {*/ Problem */}
+            {/* Problem */}
             <section className="mt-20">
                 <Reveal>
                     <div className="text-xs uppercase tracking-[0.2em] text-white/50">
@@ -177,7 +178,7 @@ export default function AtlasDBPage() {
                 <div className="section-sep mt-16 opacity-40" />
             </section>
 
-            {*/ Architecture */}
+            {/* Architecture */}
             <section id="architecture" className="mt-20">
                 <Reveal>
                     <div className="text-xs uppercase tracking-[0.2em] text-white/50">
@@ -218,7 +219,7 @@ export default function AtlasDBPage() {
                 <div className="section-sep mt-16 opacity-40" />
             </section>
 
-            {*/ Design Decisions */}
+            {/* Design Decisions */}
             <section className="mt-20">
                 <Reveal>
                     <div className="text-xs uppercase tracking-[0.2em] text-white/50">
@@ -240,7 +241,7 @@ export default function AtlasDBPage() {
                 <div className="section-sep mt-16 opacity-40" />
             </section>
 
-            {*/ Demo */}
+            {/* Demo */}
             <section className="mt-20">
                 <Reveal>
                     <div className="text-xs uppercase tracking-[0.2em] text-white/50">
@@ -269,7 +270,7 @@ OK
                 <div className="section-sep mt-16 opacity-40" />
             </section>
 
-            {*/ Roadmap */}
+            {/* Roadmap */}
             <section className="mt-20 pb-20">
                 <Reveal>
                     <div className="text-xs uppercase tracking-[0.2em] text-white/50">

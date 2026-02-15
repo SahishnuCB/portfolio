@@ -9,7 +9,7 @@ const projects = [
   {
     title: "AtlasDB",
     desc: "Embedded KV store in Rust. Clean layering today, evolving toward WAL + LSM.",
-    href: "https://github.com/SahishnuCB/atlasdb",
+    href: "/projects/atlasdb",
     tag: "Rust • Storage",
   },
   {
@@ -19,9 +19,9 @@ const projects = [
     tag: "Full-stack • Fintech",
   },
   {
-    title: "Security-first Portfolio",
-    desc: "This website. Strong headers now; CSP + CodeQL/Dependabot next.",
-    href: "#",
+    title: "Vibe",
+    desc: "Real-time shared media room built in Elixir, coordinating playback state and live chat between clients.",
+    href: "/projects/vibe",
     tag: "Next.js • Security",
   },
   {
