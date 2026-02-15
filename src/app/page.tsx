@@ -9,13 +9,13 @@ const projects = [
   {
     title: "AtlasDB",
     desc: "Embedded KV store in Rust. Clean layering today, evolving toward WAL + LSM.",
-    href: "https://github.com/SahishnuCB",
+    href: "https://github.com/SahishnuCB/atlasdb",
     tag: "Rust • Storage",
   },
   {
     title: "Lumina",
     desc: "Cross-border payments router prototype. UI + API + ML microservice pipeline.",
-    href: "https://github.com/SahishnuCB",
+    href: "https://github.com/SaathwikDasari/lumina",
     tag: "Full-stack • Fintech",
   },
   {
@@ -27,7 +27,7 @@ const projects = [
   {
     title: "More coming",
     desc: "Writeups, benchmarks, and open-source contributions as I ship more builds.",
-    href: "#",
+    href: "https://github.com/SahishnuCB",
     tag: "Roadmap",
   },
 ];
