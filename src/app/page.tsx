@@ -2,24 +2,24 @@
 
 import { motion } from "framer-motion";
 import { Section } from "@/components/Section";
-import { Reveal } from "../components/Reveal";
+import { Reveal } from "@/components/Reveal";
 
 const projects = [
   {
     title: "AtlasDB",
-    desc: "Embedded KV store in Rust. Clean layering today, evolving toward LSM + WAL.",
-    href: "#",
+    desc: "Embedded KV store in Rust. Clean layering today, evolving toward WAL + LSM.",
+    href: "https://github.com/SahishnuCB",
     tag: "Rust • Storage",
   },
   {
     title: "Lumina",
     desc: "Cross-border payments router prototype. UI + API + ML microservice pipeline.",
-    href: "#",
+    href: "https://github.com/SahishnuCB",
     tag: "Full-stack • Fintech",
   },
   {
     title: "Security-first Portfolio",
-    desc: "This website. Strong headers now, CSP + CodeQL/Dependabot next.",
+    desc: "This website. Strong headers now; CSP + CodeQL/Dependabot next.",
     href: "#",
     tag: "Next.js • Security",
   },
@@ -30,6 +30,8 @@ const projects = [
     tag: "Roadmap",
   },
 ];
+
+const skills = ["Rust", "TypeScript", "Next.js", "PostgreSQL", "Security"];
 
 export default function HomePage() {
   return (
@@ -106,12 +108,13 @@ export default function HomePage() {
 
       {/* Projects */}
       <Section id="projects" eyebrow="Selected work" title="Projects">
-        <Reveal>
-          <div className="grid gap-4 md:grid-cols-2">
-            {projects.map((p) => (
+        <div className="grid gap-4 md:grid-cols-2">
+          {projects.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.06}>
               <a
-                key={p.title}
                 href={p.href}
+                target={p.href.startsWith("http") ? "_blank" : undefined}
+                rel={p.href.startsWith("http") ? "noreferrer" : undefined}
                 className="group block rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.07] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_20px_50px_rgba(0,0,0,0.35)]"
               >
                 <div className="flex items-center justify-between gap-3">
@@ -128,12 +131,12 @@ export default function HomePage() {
                 </div>
 
                 <div className="mt-4 text-sm text-white/60 transition group-hover:text-white/80">
-                  View →{/* keep this subtle */}
+                  View →
                 </div>
               </a>
-            ))}
-          </div>
-        </Reveal>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       {/* About */}
@@ -147,16 +150,14 @@ export default function HomePage() {
             </p>
 
             <div className="mt-5 flex flex-wrap gap-2">
-              {["Rust", "TypeScript", "Next.js", "PostgreSQL", "Security"].map(
-                (t) => (
-                  <span
-                    key={t}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70"
-                  >
-                    {t}
-                  </span>
-                )
-              )}
+              {skills.map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70"
+                >
+                  {t}
+                </span>
+              ))}
             </div>
           </div>
         </Reveal>
