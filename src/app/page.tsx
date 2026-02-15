@@ -1,10 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Section } from "@/components/Section";
+import { Reveal } from "../components/Reveal";
+
+const projects = [
+  {
+    title: "AtlasDB",
+    desc: "Embedded KV store in Rust. Clean layering today, evolving toward LSM + WAL.",
+    href: "#",
+    tag: "Rust • Storage",
+  },
+  {
+    title: "Lumina",
+    desc: "Cross-border payments router prototype. UI + API + ML microservice pipeline.",
+    href: "#",
+    tag: "Full-stack • Fintech",
+  },
+  {
+    title: "Security-first Portfolio",
+    desc: "This website. Strong headers now, CSP + CodeQL/Dependabot next.",
+    href: "#",
+    tag: "Next.js • Security",
+  },
+  {
+    title: "More coming",
+    desc: "Writeups, benchmarks, and open-source contributions as I ship more builds.",
+    href: "#",
+    tag: "Roadmap",
+  },
+];
 
 export default function HomePage() {
   return (
     <main className="min-h-screen py-14">
+      {/* Top bar */}
       <header className="flex items-center justify-between">
         <div className="text-sm tracking-wide text-white/70">
           <span className="text-white">Sahishnu</span>
@@ -13,12 +43,19 @@ export default function HomePage() {
         </div>
 
         <nav className="flex gap-4 text-sm text-white/70">
-          <a className="hover:text-white transition" href="#projects">Projects</a>
-          <a className="hover:text-white transition" href="#about">About</a>
-          <a className="hover:text-white transition" href="#contact">Contact</a>
+          <a className="transition hover:text-white" href="#projects">
+            Projects
+          </a>
+          <a className="transition hover:text-white" href="#about">
+            About
+          </a>
+          <a className="transition hover:text-white" href="#contact">
+            Contact
+          </a>
         </nav>
       </header>
 
+      {/* Hero */}
       <section className="mt-16">
         <motion.h1
           initial={{ opacity: 0, y: 14 }}
@@ -39,8 +76,8 @@ export default function HomePage() {
           transition={{ duration: 0.6, delay: 0.08 }}
           className="mt-5 max-w-2xl text-base md:text-lg text-white/70"
         >
-          ECE @ VIT Vellore. Rust + TypeScript. Building AtlasDB (embedded KV) and
-          other deep-tech projects.
+          ECE @ VIT Vellore. Rust + TypeScript. I like building things that are
+          simple on the surface but serious under the hood.
         </motion.p>
 
         <motion.div
@@ -51,62 +88,108 @@ export default function HomePage() {
         >
           <a
             href="#projects"
-            className="rounded-2xl bg-white text-black px-5 py-2 text-sm font-medium hover:opacity-90 transition"
+            className="rounded-2xl bg-white px-5 py-2 text-sm font-medium text-black transition hover:opacity-90 active:scale-[0.98]"
           >
             View projects
           </a>
+
           <a
             href="https://github.com/SahishnuCB"
             target="_blank"
             rel="noreferrer"
-            className="rounded-2xl border border-white/15 px-5 py-2 text-sm font-medium text-white/80 hover:text-white hover:border-white/25 transition"
+            className="rounded-2xl border border-white/15 px-5 py-2 text-sm font-medium text-white/80 transition hover:border-white/25 hover:text-white active:scale-[0.98]"
           >
             GitHub
           </a>
         </motion.div>
       </section>
 
-      <section id="projects" className="mt-20">
-        <div className="text-xs uppercase tracking-[0.2em] text-white/50">
-          Selected work
-        </div>
+      {/* Projects */}
+      <Section id="projects" eyebrow="Selected work" title="Projects">
+        <Reveal>
+          <div className="grid gap-4 md:grid-cols-2">
+            {projects.map((p) => (
+              <a
+                key={p.title}
+                href={p.href}
+                className="group block rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.07] hover:shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_20px_50px_rgba(0,0,0,0.35)]"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <div className="text-lg font-semibold transition group-hover:text-white">
+                    {p.title}
+                  </div>
+                  <span className="rounded-full border border-white/15 bg-white/5 px-2 py-1 text-[11px] text-white/70">
+                    {p.tag}
+                  </span>
+                </div>
 
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {[
-            { title: "AtlasDB", desc: "Embedded KV store in Rust. Clean layering, evolving toward LSM." },
-            { title: "Lumina", desc: "Cross-border payments router prototype. UI + API + ML microservice." },
-            { title: "Security-first Portfolio", desc: "This site. Tight headers, CSP next, minimal surface area." },
-            { title: "More coming", desc: "Writeups, benchmarks, and open-source contributions." },
-          ].map((p) => (
-            <div
-              key={p.title}
-              className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur hover:bg-white/7 transition"
-            >
-              <div className="text-lg font-semibold">{p.title}</div>
-              <div className="mt-2 text-sm text-white/70">{p.desc}</div>
+                <div className="mt-2 text-sm leading-relaxed text-white/70">
+                  {p.desc}
+                </div>
+
+                <div className="mt-4 text-sm text-white/60 transition group-hover:text-white/80">
+                  View →{/* keep this subtle */}
+                </div>
+              </a>
+            ))}
+          </div>
+        </Reveal>
+      </Section>
+
+      {/* About */}
+      <Section id="about" eyebrow="About" title="A little bit about me">
+        <Reveal>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+            <p className="text-white/70 leading-relaxed">
+              I’m into systems work (storage engines, performance, reliability)
+              and clean product engineering. Right now I’m building AtlasDB and
+              shipping web projects that are secure by default.
+            </p>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {["Rust", "TypeScript", "Next.js", "PostgreSQL", "Security"].map(
+                (t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70"
+                  >
+                    {t}
+                  </span>
+                )
+              )}
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </Reveal>
+      </Section>
 
-      <section id="about" className="mt-20">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-          <div className="text-xs uppercase tracking-[0.2em] text-white/50">About</div>
-          <p className="mt-3 text-white/70">
-            I like building things that are simple on the surface but serious under the hood:
-            storage engines, backend systems, and clean web apps.
-          </p>
-        </div>
-      </section>
+      {/* Contact */}
+      <Section id="contact" eyebrow="Contact" title="Let’s talk" className="pb-20">
+        <Reveal>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+            <p className="text-white/70 leading-relaxed">
+              Best way to reach me: GitHub or LinkedIn. If you want, we can add a
+              secure contact form later (rate-limited + validated + no spam).
+            </p>
 
-      <section id="contact" className="mt-6 pb-20">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-          <div className="text-xs uppercase tracking-[0.2em] text-white/50">Contact</div>
-          <p className="mt-3 text-white/70">
-            DM me on GitHub or drop a message on LinkedIn. (We’ll add a secure contact form later if you want.)
-          </p>
-        </div>
-      </section>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-2xl bg-white px-5 py-2 text-sm font-medium text-black transition hover:opacity-90 active:scale-[0.98]"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="mailto:you@example.com"
+                className="rounded-2xl border border-white/15 px-5 py-2 text-sm font-medium text-white/80 transition hover:border-white/25 hover:text-white active:scale-[0.98]"
+              >
+                Email
+              </a>
+            </div>
+          </div>
+        </Reveal>
+      </Section>
     </main>
   );
 }

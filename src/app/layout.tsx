@@ -1,6 +1,7 @@
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Metadata } from "next";
+import { CursorGlow } from "../components/CursorGlow";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,10 +13,19 @@ export const metadata: Metadata = {
   description: "Projects, writing, and systems work.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans min-h-screen bg-black text-white antialiased`}>
+      <body
+        className={`${inter.variable} font-sans min-h-screen bg-black text-white antialiased`}
+      >
+        {/* 👇 ADD IT HERE */}
+        <CursorGlow />
+
         {/* Background layers */}
         <div className="pointer-events-none fixed inset-0">
           <div className="absolute inset-0 bg-grid opacity-30" />
@@ -24,8 +34,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="absolute inset-0 bg-[radial-gradient(900px_500px_at_80%_20%,rgba(236,72,153,0.18),transparent_55%)]" />
         </div>
 
-        {/* Page */}
-        <div className="relative mx-auto w-full max-w-6xl px-5">
+        {/* Page container */}
+        <div className="relative mx-auto w-full max-w-6xl px-5 md:px-8">
           {children}
         </div>
       </body>
