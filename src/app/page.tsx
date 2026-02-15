@@ -37,14 +37,14 @@ export default function HomePage() {
   return (
     <main className="min-h-screen py-14">
       {/* Top bar */}
-      <header className="flex items-center justify-between">
+      <header className="sticky top-0 z-50 mt-0 mb-10 flex items-center justify-between rounded-2xl border border-white/10 bg-black/40 px-4 py-3 backdrop-blur-xl">
         <div className="text-sm tracking-wide text-white/70">
           <span className="text-white">Sahishnu</span>
           <span className="mx-2 text-white/30">/</span>
           <span>portfolio</span>
         </div>
 
-        <nav className="flex gap-4 text-sm text-white/70">
+        <nav className="flex gap-5 text-sm text-white/70">
           <a className="transition hover:text-white" href="#projects">
             Projects
           </a>
@@ -56,6 +56,7 @@ export default function HomePage() {
           </a>
         </nav>
       </header>
+
 
       {/* Hero */}
       <section className="mt-16">
