@@ -1,5 +1,11 @@
-import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { Metadata } from "next";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   title: "Sahishnu — Portfolio",
@@ -9,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-black text-white antialiased">
+      <body className={`${inter.variable} font-sans min-h-screen bg-black text-white antialiased`}>
         {/* Background layers */}
         <div className="pointer-events-none fixed inset-0">
           <div className="absolute inset-0 bg-grid opacity-30" />
