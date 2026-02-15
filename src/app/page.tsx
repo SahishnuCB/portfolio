@@ -15,7 +15,7 @@ const projects = [
   {
     title: "Lumina",
     desc: "Cross-border payments router prototype. UI + API + ML microservice pipeline.",
-    href: "https://github.com/SaathwikDasari/lumina",
+    href: "/projects/lumina",
     tag: "Full-stack • Fintech",
   },
   {

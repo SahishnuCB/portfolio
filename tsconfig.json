@@ -13,11 +13,9 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "plugins": [{ "name": "next" }],
+
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
@@ -31,6 +29,4 @@
     "**/*.mts"
   ],
   "exclude": ["node_modules"]
-
 }
-
