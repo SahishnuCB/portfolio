@@ -24,6 +24,7 @@ export function Section({
         <h2 className="mt-3 text-2xl md:text-3xl font-semibold">{title}</h2>
         ) : null}
         <div className={cn(title ? "mt-6" : "mt-4")}>{children}</div>
+        <div className="section-sep mt-16 opacity-40" />
     </section>
     );
 }
