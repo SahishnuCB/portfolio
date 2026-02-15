@@ -11,7 +11,25 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Sahishnu — Portfolio",
   description: "Projects, writing, and systems work.",
+  metadataBase: new URL("https://your-domain.com"), // change later after deploy
+  openGraph: {
+    title: "Sahishnu — Portfolio",
+    description: "Projects, writing, and systems work.",
+    url: "https://your-domain.com",
+    siteName: "Sahishnu",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sahishnu — Portfolio",
+    description: "Projects, writing, and systems work.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
+
 
 export default function RootLayout({
   children,
