@@ -203,7 +203,7 @@ export default function HomePage() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/in/sahishnu-chandra-bheemaraju-bb960b375?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-2xl bg-white px-5 py-2 text-sm font-medium text-black transition hover:opacity-90 active:scale-[0.98]"
@@ -211,7 +211,7 @@ export default function HomePage() {
                 LinkedIn
               </a>
               <a
-                href="mailto:you@example.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=sahishnucbh@gmail.com&su=Portfolio%20Inquiry"
                 className="rounded-2xl border border-white/15 px-5 py-2 text-sm font-medium text-white/80 transition hover:border-white/25 hover:text-white active:scale-[0.98]"
               >
                 Email
