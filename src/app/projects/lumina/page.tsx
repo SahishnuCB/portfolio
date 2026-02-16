@@ -389,6 +389,62 @@ Stripe webhook (checkout.session.completed)
                 <div className="section-sep mt-16 opacity-40" />
             </section>
 
+                        {/* Failure Modes */}
+            <section className="mt-20">
+                <Reveal>
+                    <div className="text-xs uppercase tracking-[0.2em] text-white/50">
+                        Failure Modes
+                    </div>
+                    <h2 className="mt-3 text-2xl md:text-3xl font-semibold">
+                        How this system can fail — and how to harden it
+                    </h2>
+                </Reveal>
+
+                <Reveal delay={0.06}>
+                    <p className="mt-6 max-w-3xl text-white/70 leading-relaxed">
+                        Real systems fail at boundaries. Lumina was reviewed through the lens of
+                        failure analysis — not just feature completion. These are the key risks
+                        and how they would be mitigated in production.
+                    </p>
+                </Reveal>
+
+                <div className="mt-8 grid gap-4 md:grid-cols-2">
+
+                    <Reveal delay={0.1}>
+                        <Card title="Webhook replay attacks">
+                            Stripe can retry events. Settlement must be idempotent.
+                            Store processed event IDs and reject duplicates to prevent double execution.
+                        </Card>
+                    </Reveal>
+
+                    <Reveal delay={0.15}>
+                        <Card title="Settlement partial failure">
+                            If on-chain transfer fails after payment confirmation,
+                            introduce retry queues and reconciliation jobs instead of
+                            immediate execution within the webhook handler.
+                        </Card>
+                    </Reveal>
+
+                    <Reveal delay={0.2}>
+                        <Card title="Race conditions on optimize + pay">
+                            Lock route quotes with expiry windows so a user cannot pay
+                            against stale pricing or outdated route assumptions.
+                        </Card>
+                    </Reveal>
+
+                    <Reveal delay={0.25}>
+                        <Card title="Database outage during login">
+                            Fail closed. No session token should be issued if authentication
+                            layer cannot verify credentials. Add circuit breakers and health checks.
+                        </Card>
+                    </Reveal>
+
+                </div>
+
+                <div className="section-sep mt-16 opacity-40" />
+            </section>
+
+
             {/* Roadmap */}
             <section className="mt-20 pb-20">
                 <Reveal>
