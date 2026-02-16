@@ -19,7 +19,7 @@ frame-ancestors 'none';
   : // Prod CSP (strict)
     `
 default-src 'self';
-script-src 'self';
+script-src 'self' 'unsafe-inline';
 style-src 'self' 'unsafe-inline';
 img-src 'self' data: https:;
 font-src 'self' https: data:;
